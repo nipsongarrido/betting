@@ -11,13 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
-
-
 Route::get('/logout', 'UserController@getLogout');
 
+Route::get('/', 'UserController@getLogin');
 Route::get('/login', 'UserController@getLogin');
 Route::post('/login', 'UserController@postLogin');

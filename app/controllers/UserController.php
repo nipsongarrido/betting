@@ -2,6 +2,12 @@
 
 class UserController extends BaseController {
 
+
+    /**
+     * Despliega vista de login de usuario
+     * 
+     * @return View
+     */
     public function getLogin()
     {
         //checkea si el usuario esta logueado
@@ -12,6 +18,11 @@ class UserController extends BaseController {
         }
     }
 
+    /**
+     * Recibe los datos para login de usuario
+     * 
+     * @return string
+     */
     public function postLogin()
     {
         try
@@ -21,7 +32,7 @@ class UserController extends BaseController {
             $clave = Input::get('clave');
 
             // Credenciales
-            $credenciales = array(
+            $cmredenciales = array(
                 'email'    => $email,
                 'password' => $clave
             );
@@ -34,7 +45,7 @@ class UserController extends BaseController {
                 sacado de 
                 https://cartalyst.com/manual/sentry#example
             */
-            $usuario = Sentry::authenticate($credenciales, false);
+            $usuario = Sentry::authenticate($cmredenciales, false);
         }
         catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
         {
@@ -70,5 +81,17 @@ class UserController extends BaseController {
 
         echo "usuario logueado";
 
+    }
+
+
+
+    /**
+     * Termina la sesión de un usuario.
+     * 
+     * @return Response
+     */
+    public function getLogout() {
+        \Sentry::logout();
+        return Redirect::to('/');
     }
 }

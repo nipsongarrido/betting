@@ -2,6 +2,16 @@
 
 class UserController extends BaseController {
 
+    public function getLogin()
+    {
+        //checkea si el usuario esta logueado
+        if (\Sentry::check()){
+            echo "usuario logueado";
+        }else{
+            return View::make("user.login");
+        }
+    }
+
     public function postLogin()
     {
         try
@@ -20,6 +30,9 @@ class UserController extends BaseController {
             /*
                 para mantener al usuario autentificado de manera
                 permanente se usa authenticateAndRemember
+
+                sacado de 
+                https://cartalyst.com/manual/sentry#example
             */
             $usuario = Sentry::authenticate($Credenciales, false);
         }
@@ -53,6 +66,9 @@ class UserController extends BaseController {
         {
             echo 'Usuario Baneado.';
         }
+
+
+        echo "usuario logueado";
 
     }
 }

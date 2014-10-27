@@ -16,9 +16,6 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('/login', function()
-{
-	return View::make('user.login');
-});
 
+Route::get('/login', 'UserController@getLogin');
 Route::post('/login', 'UserController@postLogin');

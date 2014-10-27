@@ -87,24 +87,11 @@
 
 	          <a class="navbar-brand" href="#">Betting</a>
 	        </div>
-
-
-	        <div class="collapse navbar-collapse">
-
-
-	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="#">Inicio</a></li>
-	            <li><a href="#about">Acerca</a></li>
-	            <li><a href="#contact">Contacto</a></li>
-	          </ul>
-
-
-	        </div><!--/.nav-collapse -->
 	      </div>
 	    </div>
 	@show
 	
-
+	{{-- Yield para el contenido, en donde se cargara el contenido de la plantilla --}}
 	@yield("contenido")
 
 
@@ -118,9 +105,12 @@
 	    </div>
 	@show
 
-
+	
+	{{--  Javascript, cargado al final para optimizar carga --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	{{-- Yield para agregar javascript opcional desde otras vistas --}}
 	@yield("javascript")
 
 

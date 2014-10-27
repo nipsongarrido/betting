@@ -16,3 +16,5 @@ Route::get('/logout', 'UserController@getLogout');
 Route::get('/', 'UserController@getLogin');
 Route::get('/login', 'UserController@getLogin');
 Route::post('/login', 'UserController@postLogin');
+
+Route::get('/equipos/lista', 'EquiposController@getLista');

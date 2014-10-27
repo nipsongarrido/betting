@@ -21,7 +21,7 @@ class UserController extends BaseController {
             $clave = Input::get('clave');
 
             // Credenciales
-            $Credenciales = array(
+            $credenciales = array(
                 'email'    => $email,
                 'password' => $clave
             );
@@ -34,7 +34,7 @@ class UserController extends BaseController {
                 sacado de 
                 https://cartalyst.com/manual/sentry#example
             */
-            $usuario = Sentry::authenticate($Credenciales, false);
+            $usuario = Sentry::authenticate($credenciales, false);
         }
         catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
         {

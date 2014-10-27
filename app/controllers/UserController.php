@@ -1,14 +1,14 @@
 <?php 
 
-class HomeController extends BaseController {
+class UserController extends BaseController {
 
-    public function Login()
+    public function postLogin()
     {
         try
         {
 
             $email = Input::get('email');
-            $clave = Input::get('password');
+            $clave = Input::get('clave');
 
             // Credenciales
             $Credenciales = array(
@@ -33,7 +33,7 @@ class HomeController extends BaseController {
         }
         catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
         {
-            echo 'Contraseña incorrecta, intentelo nuevamente'.;
+            echo 'Contraseña incorrecta, intentelo nuevamente.';
         }
         catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
         {
